@@ -1,3 +1,4 @@
+import { addElemets, clearInput, } from "./render-elements"
 
 const ElementIds = {
 
@@ -20,9 +21,7 @@ export const Calculator = () => {
 
         button.addEventListener( 'click', () => {
 
-            console.log( button.innerText )
-
-            return numberButton.innerText
+            addElemets( button.innerText )
 
         })
 
@@ -32,9 +31,7 @@ export const Calculator = () => {
 
         button.addEventListener( 'click', () => {
 
-            console.log( button.innerText )
-
-            return 
+            addElemets( button.innerText )
 
         })
 
@@ -44,8 +41,10 @@ export const Calculator = () => {
 
         button.addEventListener( 'click', () => {
 
-            console.log( button.innerText )
             throw Error( 'No implementado' )
+
+            calcResult()
+            renderResult()
 
         })
 
@@ -55,8 +54,7 @@ export const Calculator = () => {
 
         button.addEventListener( 'click', () => {
 
-            console.log( button.innerText )
-            throw Error( 'No implementado' )
+            clearInput()
 
         })
 

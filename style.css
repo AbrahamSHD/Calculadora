@@ -48,3 +48,47 @@
     background: var(--bg-blue-600);
     color: var(--bg-white);
 }
+
+#button-Delete{
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: var(--bg-sky-300);
+    padding: 20px;
+    font-size: large;
+    font-weight: bold;
+    color: var(--bg-blue-500);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#button-Delete:active{
+    background: var(--bg-blue-600);
+    color: var(--bg-white);
+}
+
+#button-Equal{
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: var(--bg-sky-300);
+    padding: 20px;
+    font-size: large;
+    font-weight: bold;
+    color: var(--bg-blue-500);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+#button-Equal:active{
+    background: var(--bg-blue-600);
+    color: var(--bg-white);
+}
