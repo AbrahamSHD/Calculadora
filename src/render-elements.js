@@ -1,32 +1,77 @@
 
-const inputNumber = document.querySelector( '#result' )
-let result = document.querySelector( '#result' )
-let prevOperation = ''
-let currentOperation = ''
-let operation = undefined
+let inputValue = document.querySelector( '#result' )
+let previusValue = ''
+let currentValue = ''
+let result = ''
+let operator = ''
+
+export const renderElement = ( element ) => {
+
+    inputValue.value += element
+
+}
+
+export const clearInput = ( inputValue ) => {
+
+    inputValue.value = ''
+
+}
 
 /**
- * @param { String } elementNumber 
+ * 
+ * @param { String } value 
  */
-export const addElemets = ( elementNumber ) => {
+export const saveElement = ( value ) => {
 
-    if( !elementNumber ) throw Error( 'Introduce un número' )
-
-    currentOperation = currentOperation.toString() + elementNumber.toString()
-    renderNumbers()
+    previusValue = Number(value)
+    clearInput( inputValue )
 
 }
 
-export const renderNumbers = () => {
+export const restartOperation = () => {
 
-    result.value = currentOperation
+    inputValue.value = ''
+    previusValue = ''
+    currentValue = ''
+    operator = ''
 
 }
 
-export const clearInput = () => {
+/**
+ * 
+ * @param { String } symbol 
+ */
+export const selectOperator = ( symbol ) => {
 
-    result.value = ''
-    currentOperation = ''
-    operation = undefined
+    operator = symbol
+    console.log( previusValue )
+    return operator
+
+}
+
+export const generateReult = () => {
+
+    currentValue = Number(inputValue.value)
+
+    console.log( currentValue )
+
+    clearInput( inputValue )
+    
+    switch( operator ){
+        case '+':
+            result = previusValue + currentValue
+            break
+        case '-':
+            result = previusValue - currentValue
+            break
+        case '/':
+            result = previusValue / currentValue
+            break
+        case 'x':
+            result = previusValue * currentValue
+            break
+    }
+
+    renderElement( result )
 
 }

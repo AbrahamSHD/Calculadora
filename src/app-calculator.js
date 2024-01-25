@@ -1,4 +1,4 @@
-import { addElemets, clearInput, } from "./render-elements"
+import { saveElement, restartOperation, renderElement, selectOperator, generateReult } from "./render-elements"
 
 const ElementIds = {
 
@@ -6,6 +6,7 @@ const ElementIds = {
     elementsOperator: '.button-calc',
     elementEqual: '#button-Equal',
     elementDelete: '#button-Delete',
+    elementInput: '#result',
 
 }
 
@@ -14,14 +15,19 @@ export const Calculator = () => {
     
     const numberButton = document.querySelectorAll( ElementIds.elementsNumber )
     const operatorButton = document.querySelectorAll( ElementIds.elementsOperator )
-    const equalButton = document.querySelectorAll( ElementIds.elementEqual )
-    const deleteButton = document.querySelectorAll( ElementIds.elementDelete )
+    const equalButton = document.querySelector( ElementIds.elementEqual )
+    const deleteButton = document.querySelector( ElementIds.elementDelete )
+    const inputValue = document.querySelector( ElementIds.elementInput )
+
+    let operator = selectOperator
+
+    // clearInput()
 
     numberButton.forEach( ( button ) => {
 
         button.addEventListener( 'click', () => {
 
-            addElemets( button.innerText )
+            renderElement( button.innerText )
 
         })
 
@@ -31,33 +37,22 @@ export const Calculator = () => {
 
         button.addEventListener( 'click', () => {
 
-            addElemets( button.innerText )
+            saveElement( inputValue.value )
+            selectOperator( button.innerText )
+            console.log( button.innerText )
 
         })
 
     })
 
-    equalButton.forEach( ( button ) => {
-
-        button.addEventListener( 'click', () => {
-
-            throw Error( 'No implementado' )
-
-            calcResult()
-            renderResult()
+    equalButton.addEventListener( 'click', () => {
+        generateReult( operator )
 
         })
 
-    })
+    deleteButton.addEventListener( 'click', () => {
 
-    deleteButton.forEach( ( button ) => {
-
-        button.addEventListener( 'click', () => {
-
-            clearInput()
+            restartOperation( inputValue )
 
         })
-
-    })
-
 }
